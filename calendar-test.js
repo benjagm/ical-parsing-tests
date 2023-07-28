@@ -61,9 +61,9 @@ function printEventsForNextFourWeeks(icalData) {
           // Check if the event falls within the next 4 weeks from today
           if (startDate.isBetween(today, nextFourWeeksEnd, undefined, '[]')) {
             console.log('title:' + title);
+            console.log('description:' + description);
             console.log('startDate:' + startDate.format('MMMM Do YYYY, h:mm:ss a'));
             console.log('endDate:' + endDate.format('MMMM Do YYYY, h:mm:ss a'));
-            console.log('description:' + description);
             console.log('timezone:' + timezone);
             console.log('duration:' + moment.duration(duration).humanize());
             console.log();
@@ -73,9 +73,9 @@ function printEventsForNextFourWeeks(icalData) {
         // Simple case - no recurrences, just print out the calendar event.
         if (startDate.isBetween(today, nextFourWeeksEnd, undefined, '[]')) {
           console.log('title:' + title);
+          console.log('description:' + description);
           console.log('startDate:' + startDate.format('MMMM Do YYYY, h:mm:ss a'));
           console.log('endDate:' + endDate.format('MMMM Do YYYY, h:mm:ss a'));
-          console.log('description:' + description);
           console.log('timezone:' + timezone);
           console.log('duration:' + moment.duration(duration).humanize());
           console.log();

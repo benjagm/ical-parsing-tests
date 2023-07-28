@@ -33,20 +33,21 @@ The script will display event details for each event that falls within the speci
 
 ```
 Title: The title of the event.
+Description: The description of the event.
 Start Date: The start date and time of the event.
 End Date: The end date and time of the event.
 Timezone: The timezone of the event (if available).
 Duration: The duration of the event.
-Example
-yaml
-Copy code
+
 title: Birthday Party
+Description: The description Birthday Party.
 startDate: August 5th 2023, 2:00:00 pm
 endDate: August 5th 2023, 6:00:00 pm
 timezone: America/New_York
 duration: 4 hours
 
 title: Weekly Meeting
+Description: The description of Weekly Meeting.
 startDate: August 10th 2023, 10:00:00 am
 endDate: August 10th 2023, 11:30:00 am
 timezone: Europe/London
