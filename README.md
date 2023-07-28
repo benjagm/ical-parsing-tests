@@ -37,9 +37,7 @@ Start Date: The start date and time of the event.
 End Date: The end date and time of the event.
 Timezone: The timezone of the event (if available).
 Duration: The duration of the event.
-Example
-yaml
-Copy code
+
 title: Birthday Party
 startDate: August 5th 2023, 2:00:00 pm
 endDate: August 5th 2023, 6:00:00 pm
