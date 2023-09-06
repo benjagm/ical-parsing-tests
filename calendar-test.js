@@ -23,6 +23,7 @@ function printEventsForNextFourWeeks(icalData) {
   // Calculate the range of dates for the next 4 weeks from today
   const today = moment().startOf('day');
   const nextFourWeeksEnd = moment().add(4, 'weeks').endOf('day');
+  var myevents = [];
 
   // Loop through the events in the iCal data
   for (const k in icalData) {
@@ -60,29 +61,46 @@ function printEventsForNextFourWeeks(icalData) {
 
           // Check if the event falls within the next 4 weeks from today
           if (startDate.isBetween(today, nextFourWeeksEnd, undefined, '[]')) {
-            console.log('title:' + title);
-            console.log('description:' + description);
-            console.log('startDate:' + startDate.format('MMMM Do YYYY, h:mm:ss a'));
-            console.log('endDate:' + endDate.format('MMMM Do YYYY, h:mm:ss a'));
-            console.log('timezone:' + timezone);
-            console.log('duration:' + moment.duration(duration).humanize());
-            console.log();
+            myevents.push({ 
+              "title" : title,
+              "description" : description,
+              "startDate" : startDate.format('MMMM Do YYYY, h:mm:ss a'),
+              "endDate" : endDate.format('MMMM Do YYYY, h:mm:ss a'),
+              "timezone" :  timezone,
+              "duration" : moment.duration(duration).humanize()
+            });
           }
         }
       } else {
         // Simple case - no recurrences, just print out the calendar event.
         if (startDate.isBetween(today, nextFourWeeksEnd, undefined, '[]')) {
-          console.log('title:' + title);
-          console.log('description:' + description);
-          console.log('startDate:' + startDate.format('MMMM Do YYYY, h:mm:ss a'));
-          console.log('endDate:' + endDate.format('MMMM Do YYYY, h:mm:ss a'));
-          console.log('timezone:' + timezone);
-          console.log('duration:' + moment.duration(duration).humanize());
-          console.log();
+          myevents.push({ 
+            "title" : title,
+            "description" : description,
+            "startDate" : startDate.format('MMMM Do YYYY, h:mm:ss a'),
+            "endDate" : endDate.format('MMMM Do YYYY, h:mm:ss a'),
+            "timezone" :  timezone,
+            "duration" : moment.duration(duration).humanize()
+          });
         }
       }
-    }
+    }    
   }
+
+  //Sort events by date
+  var myevents= myevents.sort((function (a, b) { return new Date(b.startDate) - new Date(a.startDate) }));
+  
+  // Print events
+  for (const k in myevents) {
+    console.log('title:' + myevents[k].title);
+    //console.log('description:' + myevents[k].description);
+    console.log('startDate:' + myevents[k].startDate);
+    //console.log('endDate:' + myevents[k].endDate);
+    console.log('timezone:' + myevents[k].timezone);
+    //console.log('duration:' + myevents[k].duration);
+    console.log();
+  }
+  
 }
 
 
