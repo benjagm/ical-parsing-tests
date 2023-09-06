@@ -16,14 +16,10 @@ npm install axios node-ical moment
 ```
 
 ## Usage
-Replace the URL_TO_YOUR_REMOTE_ICAL_FILE placeholder in the index.js file with the actual URL of the remote iCal file you want to fetch.
-
-Run the script using Node.js:
+Replace the url of the actual remote iCal file you want to fetch in the variable remoteICalUrl of the calendar-test.js file with and run the script using Node.js:
 
 ```bash
-bash
-Copy code
-node index.js
+node calendar-test.js
 ```
 
 The script will fetch the iCal file, filter and print events occurring from today to the next 4 weeks, including recurring events.
