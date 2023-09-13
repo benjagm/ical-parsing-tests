@@ -86,9 +86,12 @@ function printEventsForNextFourWeeks(icalData) {
       }
     }    
   }
+  myevents.forEach(event => {
+    event.parsedStartDate = moment(event.startDate, 'MMMM Do YYYY, h:mm:ss a').toDate();
+  });
 
-  //Sort events by date
-  var myevents= myevents.sort((function (a, b) { return new Date(b.startDate) - new Date(a.startDate) }));
+  // Sort events by parsedStartDate
+  myevents.sort((a, b) => a.parsedStartDate - b.parsedStartDate);
   
   // Print events
   for (const k in myevents) {
